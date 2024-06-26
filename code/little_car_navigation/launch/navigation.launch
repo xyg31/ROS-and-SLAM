@@ -1,0 +1,14 @@
+<launch>
+
+  <!-- move_base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    
+    <rosparam file="$(find little_car_navigation)/param/move_base_params.yaml" command="load" />
+    <rosparam file="$(find little_car_navigation)/param/costmap_common_params.yaml" command="load" />
+    <rosparam file="$(find little_car_navigation)/param/global_planner_params.yaml" command="load" ns="GlobalPlanner" />
+    <rosparam file="$(find little_car_navigation)/param/teb_local_planner_params.yaml" command="load" />
+  </node>
+</launch>
+
+
